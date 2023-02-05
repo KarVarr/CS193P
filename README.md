@@ -1,5 +1,7 @@
-<div align="center">
+<div id="header" align="center">
+
 # CS193P
+
 ## The lectures given to Stanford University.
 
 ---
