@@ -23,50 +23,13 @@ struct ContentView: View {
             }
             
             .foregroundColor(.pink)
-            Spacer()
-            HStack {
-                remove
-                Spacer()
-                Text("random").foregroundColor(.white)
-                Spacer()
-                add
-            }
-            .font(.largeTitle)
-            .padding(.horizontal)
+            
         }
         .padding(.horizontal)
         .background(.teal)
         
     }
-    //MARK: - buttons
-    var add: some View {
-        Button {
-            if emojiCount < emojis.count {
-                emojiCount += 1
-            }
-        } label: {
-            Image(systemName: "plus.circle")
-            
-        }
-    }
-    
-    var remove: some View {
-        Button {
-            if emojiCount > 1 {
-                emojiCount -= 1
-                
-            }
-        } label: {
-            Image(systemName: "minus.circle")
-            
-        }
-        
-        
-    }
-    
-        
 }
-
 //MARK: - Card
 struct CardView: View {
     var content: String
