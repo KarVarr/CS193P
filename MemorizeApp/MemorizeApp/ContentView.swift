@@ -8,45 +8,66 @@
 import SwiftUI
 
 struct ContentView: View {
-    var emojis = ["🚗", "✈️", "🚔", "🚃","🛰️", "🚀", "🗼", "🚈","🚤", "✈️", "🗿", "🚘","🚚", "🚲", "🏟️", "💺","🚨", "🚄", "🛳️", "🏎️","🚇", "🚆", "🚁", "🛸",]
-    @State var emojiCount = 4
+    var emojis = ["🚗", "✈️", "🚔", "🚃","🛰️", "🚀", "🗼", "🚈","🚤", "🚟", "🗿", "🚘","🚚", "🚲", "🏟️", "💺","🚨", "🚄", "🛳️", "🏎️","🚇", "🚆", "🚁", "🛸",]
+    @State var emojiCount = 24
     
     var body: some View {
+        
         VStack {
-            HStack {
-                ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
-                    CardView(content: emoji)
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.adaptive( minimum: 70))]) {
+                    ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
+                        CardView(content: emoji).aspectRatio(2/3, contentMode: .fit)
+                    }
                 }
             }
+            
+            .foregroundColor(.pink)
+            Spacer()
             HStack {
-                Button(action: {
-                    emojiCount += 1
-                }, label: {
-                    HStack {
-                        Text("Add Card")
-                        
-                    }
-                })
-                Button(action: {
-                    emojiCount -= 1
-                }, label: {
-                    HStack {
-                        Text("Remove Card")
-                        
-                    }
-                })
+                remove
+                Spacer()
+                Text("random").foregroundColor(.white)
+                Spacer()
+                add
             }
+            .font(.largeTitle)
+            .padding(.horizontal)
         }
-        .foregroundColor(.cyan)
         .padding(.horizontal)
-        .background(.gray)
-       
+        .background(.teal)
+        
     }
-   
+    //MARK: - buttons
+    var add: some View {
+        Button {
+            if emojiCount < emojis.count {
+                emojiCount += 1
+            }
+        } label: {
+            Image(systemName: "plus.circle")
+            
+        }
+    }
     
+    var remove: some View {
+        Button {
+            if emojiCount > 1 {
+                emojiCount -= 1
+                
+            }
+        } label: {
+            Image(systemName: "minus.circle")
+            
+        }
+        
+        
+    }
+    
+        
 }
 
-
+//MARK: - Card
 struct CardView: View {
     var content: String
     @State var isFaceUp = true
@@ -56,7 +77,7 @@ struct CardView: View {
             let shape = RoundedRectangle(cornerRadius: 20)
             if isFaceUp {
                 shape.fill().foregroundColor(.white)
-                shape.stroke(lineWidth: 3)
+                shape.strokeBorder(lineWidth: 3)
                 Text(content).font(.largeTitle)
             } else {
                 shape.fill()
@@ -86,4 +107,5 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+    
 }
