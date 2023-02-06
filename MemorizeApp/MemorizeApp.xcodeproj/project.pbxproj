@@ -12,6 +12,7 @@
 		17A6A9DD299056B6003BE599 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17A6A9DC299056B6003BE599 /* Assets.xcassets */; };
 		17A6A9E0299056B6003BE599 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17A6A9DF299056B6003BE599 /* Preview Assets.xcassets */; };
 		17A6A9E729915DD1003BE599 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A6A9E629915DD1003BE599 /* MemoryGame.swift */; };
+		17A6A9E929916069003BE599 /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A6A9E829916069003BE599 /* EmojiMemoryGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		17A6A9DC299056B6003BE599 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17A6A9DF299056B6003BE599 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		17A6A9E629915DD1003BE599 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
+		17A6A9E829916069003BE599 /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				17A6A9D8299056B5003BE599 /* MemorizeAppApp.swift */,
 				17A6A9DA299056B5003BE599 /* ContentView.swift */,
 				17A6A9E629915DD1003BE599 /* MemoryGame.swift */,
+				17A6A9E829916069003BE599 /* EmojiMemoryGame.swift */,
 				17A6A9DC299056B6003BE599 /* Assets.xcassets */,
 				17A6A9DE299056B6003BE599 /* Preview Content */,
 			);
@@ -102,6 +105,7 @@
 				TargetAttributes = {
 					17A6A9D4299056B5003BE599 = {
 						CreatedOnToolsVersion = 14.1;
+						LastSwiftMigration = 1410;
 					};
 				};
 			};
@@ -143,6 +147,7 @@
 				17A6A9E729915DD1003BE599 /* MemoryGame.swift in Sources */,
 				17A6A9DB299056B5003BE599 /* ContentView.swift in Sources */,
 				17A6A9D9299056B5003BE599 /* MemorizeAppApp.swift in Sources */,
+				17A6A9E929916069003BE599 /* EmojiMemoryGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +273,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MemorizeApp/Preview Content\"";
@@ -287,6 +293,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.karen.MemorizeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -297,6 +304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MemorizeApp/Preview Content\"";
