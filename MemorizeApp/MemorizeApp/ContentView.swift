@@ -9,23 +9,53 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "camera")
-                .imageScale(.large)
-                .foregroundColor(.teal)
-                .padding(.top, 40)
-                
-            Text("Hello, world!")
-                .frame(width: 250,height: 50, alignment: .leading)
-                .padding([.leading])
-                .border(.teal)
-                
-                .padding(.all, 20)
+        HStack {
+            CardView()
+            CardView()
+            CardView()
+
         }
-        .border(.red)
+        .foregroundColor(.cyan)
+        .padding(.horizontal)
+        .background(.gray)
+    }
+        
+}
+
+
+struct CardView: View {
+    @State var isFaceUp = true
+    
+    var body: some View {
+        ZStack {
+            let shape = RoundedRectangle(cornerRadius: 20)
+            if isFaceUp {
+                shape.fill().foregroundColor(.white)
+                shape.stroke(lineWidth: 3)
+                Text("✈️").font(.largeTitle)
+            } else {
+                shape.fill()
+            }
+           
+        }
+        .onTapGesture {
+            isFaceUp = !isFaceUp
+        }
         
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
