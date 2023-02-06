@@ -8,22 +8,47 @@
 import SwiftUI
 
 struct ContentView: View {
+    var emojis = ["🚗", "✈️", "🚔", "🚃","🛰️", "🚀", "🗼", "🚈","🚤", "✈️", "🗿", "🚘","🚚", "🚲", "🏟️", "💺","🚨", "🚄", "🛳️", "🏎️","🚇", "🚆", "🚁", "🛸",]
+    @State var emojiCount = 4
+    
     var body: some View {
-        HStack {
-            CardView()
-            CardView()
-            CardView()
-
+        VStack {
+            HStack {
+                ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
+                    CardView(content: emoji)
+                }
+            }
+            HStack {
+                Button(action: {
+                    emojiCount += 1
+                }, label: {
+                    HStack {
+                        Text("Add Card")
+                        
+                    }
+                })
+                Button(action: {
+                    emojiCount -= 1
+                }, label: {
+                    HStack {
+                        Text("Remove Card")
+                        
+                    }
+                })
+            }
         }
         .foregroundColor(.cyan)
         .padding(.horizontal)
         .background(.gray)
+       
     }
-        
+   
+    
 }
 
 
 struct CardView: View {
+    var content: String
     @State var isFaceUp = true
     
     var body: some View {
@@ -32,11 +57,11 @@ struct CardView: View {
             if isFaceUp {
                 shape.fill().foregroundColor(.white)
                 shape.stroke(lineWidth: 3)
-                Text("✈️").font(.largeTitle)
+                Text(content).font(.largeTitle)
             } else {
                 shape.fill()
             }
-           
+            
         }
         .onTapGesture {
             isFaceUp = !isFaceUp
