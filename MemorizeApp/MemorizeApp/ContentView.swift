@@ -18,6 +18,9 @@ struct ContentView: View {
                 LazyVGrid(columns: [GridItem(.adaptive( minimum: 70))]) {
                     ForEach(viewModel.cards) { card in
                         CardView(card: card).aspectRatio(2/3, contentMode: .fit)
+                            .onTapGesture {
+                                viewModel.choose(card)
+                            }
                     }
                 }
             }

@@ -23,5 +23,11 @@ class EmojiMemoryGame {
     var cards: Array<MemoryGame<String>.Card> {
          model.cards
     }
+    //MARK: -  - Intens(s)
+    
+    func choose (_ card: MemoryGame<String>.Card) {
+        model.choose(card)
+    }
+    
     
 }
