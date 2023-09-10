@@ -10,18 +10,24 @@ import UIKit
 class TodoListViewController: UITableViewController {
     
     var itemArray = ["Find Mike", "Buy Eggos", "Destory Demogorgon"]
-
+    
+    let defaults = UserDefaults.standard
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        if let array = defaults.object(forKey: "array") as? [String] {
+            itemArray = array
+        }
+        
     }
     
-   
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         itemArray.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell",for: indexPath)
         
@@ -37,7 +43,7 @@ class TodoListViewController: UITableViewController {
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
         }
-
+        
         
     }
     
@@ -47,7 +53,9 @@ class TodoListViewController: UITableViewController {
         let ac = UIAlertController(title: "New Todoey task", message: "Add new Task", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Add Item", style: .default) {[weak self] action in
             self?.itemArray.append(ac.textFields?.first?.text ?? "---")
+            self?.defaults.set(self?.itemArray, forKey: "array")
             self?.tableView.reloadData()
+            
         })
         ac.addTextField() { text in
             text.placeholder = "Create new item"
