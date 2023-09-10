@@ -14,6 +14,7 @@
 		17F036112AADDF1400051AFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F036102AADDF1400051AFC /* Assets.xcassets */; };
 		17F036142AADDF1400051AFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17F036122AADDF1400051AFC /* LaunchScreen.storyboard */; };
 		17F0361C2AAE07DD00051AFC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F0361B2AAE07DD00051AFC /* Item.swift */; };
+		17F036222AAE2C7700051AFC /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17F036202AAE2C7700051AFC /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		17F036132AADDF1400051AFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17F036152AADDF1400051AFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17F0361B2AAE07DD00051AFC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		17F036212AAE2C7700051AFC /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				17F0361B2AAE07DD00051AFC /* Item.swift */,
+				17F036202AAE2C7700051AFC /* DataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17F0361C2AAE07DD00051AFC /* Item.swift in Sources */,
+				17F036222AAE2C7700051AFC /* DataModel.xcdatamodeld in Sources */,
 				17F0360C2AADDF1000051AFC /* TodoListViewController.swift in Sources */,
 				17F036082AADDF1000051AFC /* AppDelegate.swift in Sources */,
 				17F0360A2AADDF1000051AFC /* SceneDelegate.swift in Sources */,
@@ -386,6 +390,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		17F036202AAE2C7700051AFC /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				17F036212AAE2C7700051AFC /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 17F036212AAE2C7700051AFC /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 17F035FC2AADDF1000051AFC /* Project object */;
 }
