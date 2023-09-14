@@ -42,18 +42,6 @@ class TodoListViewController: UITableViewController {
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         saveItems()
         tableView.reloadData()
-        
-        //        itemArray[indexPath.row].setValue("Done", forKey: "title") //for update
-        
-        // Delete items
-        //        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) {
-        //            DispatchQueue.main.async {
-        //                self.context.delete(self.itemArray[indexPath.row])
-        //                self.itemArray.remove(at: indexPath.row)
-        //                tableView.reloadData()
-        //            }
-        //
-        //        }
     }
     
     
@@ -102,6 +90,8 @@ class TodoListViewController: UITableViewController {
         } catch {
             print("Error fetching from context \(error.localizedDescription)")
         }
+        
+        tableView.reloadData()
     }
     
 }
@@ -117,6 +107,17 @@ extension TodoListViewController: UISearchBarDelegate {
         
         request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         
-        loadItems()
+        loadItems(with: request)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text?.count == 0 {
+            loadItems()
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
     }
 }
