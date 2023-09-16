@@ -25,7 +25,6 @@ class TodoListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loadItems()
     }
     
@@ -41,10 +40,7 @@ class TodoListViewController: UITableViewController {
         if let item = todoItems?[indexPath.row] {
             cell.textLabel?.text = item.title
             cell.accessoryType = item.done ? .checkmark :  .none
-        } else {
-            cell.textLabel?.text = "no item"
         }
-        
         return cell
     }
     
@@ -53,15 +49,13 @@ class TodoListViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         if let item = todoItems?[indexPath.row] {
             do {
-               try realm.write {
+                try realm.write {
                     item.done = !item.done
                 }
             } catch {
                 print(error)
             }
         }
-        
-        //        todoItems?[indexPath.row].done = !todoItems?[indexPath.row].done
         tableView.reloadData()
     }
     
@@ -70,7 +64,7 @@ class TodoListViewController: UITableViewController {
         var textField = UITextField()
         
         let ac = UIAlertController(title: "New Todoey task", message: "Add new Task", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Add Item", style: .default) {[weak self] action in
+        ac.addAction(UIAlertAction(title: "Add Item", style: .default) { [weak self] action in
             
             if let currentCategory = self?.selectedCategory {
                 do {
@@ -93,7 +87,6 @@ class TodoListViewController: UITableViewController {
         
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
-        
     }
     
     //MARK: - Model manipulation Methods
@@ -101,9 +94,9 @@ class TodoListViewController: UITableViewController {
     
     
     func loadItems() {
-//        
-//        itemArray = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
-//        tableView.reloadData()
+        
+        todoItems = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
+        tableView.reloadData()
         
         //        CoreData
         //        func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest(), predicate: NSPredicate? = nil)
