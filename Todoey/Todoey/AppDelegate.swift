@@ -11,22 +11,19 @@ import RealmSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let config = Realm.Configuration(
-            schemaVersion: 2, // Update this to your new schema version
-            migrationBlock: { migration, oldSchemaVersion in
-                if oldSchemaVersion < 2 {
-                    // Add the 'Category.items' property here
-                    migration.enumerateObjects(ofType: Category.className()) { _, newObject in
-                        newObject?["items"] = List<Item>()
-                    }
-                }
-            }
-        )
-        Realm.Configuration.defaultConfiguration = config
+//        let config = Realm.Configuration(
+//            schemaVersion: 3,
+//            migrationBlock: { migration, oldSchemaVersion in
+//                if oldSchemaVersion < 2 {
+//                    migration.enumerateObjects(ofType: Category.className()) { _, newObject in
+//                        newObject?["items"] = List<Item>()
+//                    }
+//                }
+//            }
+//        )
+//        Realm.Configuration.defaultConfiguration = config
 
         
         do {
