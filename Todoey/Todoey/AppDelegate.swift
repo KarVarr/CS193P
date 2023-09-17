@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         do {
-            let realm = try Realm()
+            _ = try Realm()
         } catch {
             print(error)
         }
