@@ -41,6 +41,7 @@ class CategoryTableViewController: UITableViewController {
         
         let category = categories?[indexPath.row]
         cell.textLabel?.text = category?.name
+        cell.backgroundColor = .magenta
         
         return cell
     }
