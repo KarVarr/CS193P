@@ -10,12 +10,41 @@ import UIKit
 
 class MyCustomTableCell: UITableViewCell {
     
+    private let button: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Button", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemIndigo
+        
+        return button
+    }()
+    
+    let action = PassthroughSubject<String, Never>()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(button)
+        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        button.frame = CGRect(x: 10, y: 3, width: contentView.frame.size.width - 20, height: contentView.frame.size.height - 6)
+    }
+    
+    @objc func didTapButton() {
+        action.send("Cool, button is pressed!")
+    }
 }
 
 class ViewController: UIViewController, UITableViewDataSource {
    
     private var models = [String]()
-    var observer: AnyCancellable?
+    var observers = [AnyCancellable]()
     
     private var tableView: UITableView = {
        let table = UITableView()
@@ -29,7 +58,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
         tableView.frame = view.bounds
         
-        observer = APICaller.shared.fetchCompanies()
+        APICaller.shared.fetchCompanies()
             .receive(on: DispatchQueue.main)
             .sink { completion in
             switch completion {
@@ -39,7 +68,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         } receiveValue: { [weak self] value in
             self?.models = value
             self?.tableView.reloadData()
-        }
+        }.store(in: &observers)
     }
 
     
@@ -52,7 +81,9 @@ class ViewController: UIViewController, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MyCustomTableCell else {
             fatalError()
         }
-        cell.textLabel?.text = models[indexPath.row]
+        cell.action.sink { string in
+            print(string)
+        }.store(in: &observers)
         
         
         return cell
