@@ -13,6 +13,7 @@
 		171A745E2AD9AEF600718A1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 171A745C2AD9AEF600718A1A /* Main.storyboard */; };
 		171A74602AD9AEF800718A1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 171A745F2AD9AEF800718A1A /* Assets.xcassets */; };
 		171A74632AD9AEF800718A1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 171A74612AD9AEF800718A1A /* LaunchScreen.storyboard */; };
+		171A746B2AD9B44900718A1A /* ApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A746A2AD9B44900718A1A /* ApiCaller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		171A745F2AD9AEF800718A1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		171A74622AD9AEF800718A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		171A74642AD9AEF800718A1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		171A746A2AD9B44900718A1A /* ApiCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCaller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				171A74562AD9AEF600718A1A /* AppDelegate.swift */,
 				171A74582AD9AEF600718A1A /* SceneDelegate.swift */,
 				171A745A2AD9AEF600718A1A /* ViewController.swift */,
+				171A746A2AD9B44900718A1A /* ApiCaller.swift */,
 				171A745C2AD9AEF600718A1A /* Main.storyboard */,
 				171A745F2AD9AEF800718A1A /* Assets.xcassets */,
 				171A74612AD9AEF800718A1A /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				171A745B2AD9AEF600718A1A /* ViewController.swift in Sources */,
 				171A74572AD9AEF600718A1A /* AppDelegate.swift in Sources */,
 				171A74592AD9AEF600718A1A /* SceneDelegate.swift in Sources */,
+				171A746B2AD9B44900718A1A /* ApiCaller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
