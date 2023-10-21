@@ -10,11 +10,21 @@ import UIKit
 class SearchViewController: UITableViewController {
     let arr = ["1","2","3","4","5","6","7","8","9","0"]
 
+    let searchController = UISearchController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .white
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        setupSearchBar()
+    }
+    
+    private func setupSearchBar() {
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.delegate = self
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,4 +41,11 @@ class SearchViewController: UITableViewController {
 
  
 
+}
+
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+    }
 }
