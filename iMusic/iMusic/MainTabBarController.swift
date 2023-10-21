@@ -13,10 +13,26 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .gray
+        let navigationVCSearch = generateViewController(rootViewController: searchVC, image: "magnifyingglass", title: "Search")
+        let navigationVCLibrary = generateViewController(rootViewController: libraryVC, image: "building.columns", title: "Library")
+ 
         
-        viewControllers = [searchVC,libraryVC]
+        tabBar.backgroundColor = .white
+        tabBar.tintColor = #colorLiteral(red: 1, green: 0.1719063818, blue: 0.4505617619, alpha: 1)
+    
+        viewControllers = [navigationVCSearch,navigationVCLibrary]
+    }
+    
+    private func generateViewController(rootViewController: UIViewController, image: String, title: String) -> UIViewController {
+        let navigationVC = UINavigationController(rootViewController: rootViewController)
+ 
+        
+        navigationVC.tabBarItem.image = UIImage(systemName: image)
+        navigationVC.tabBarItem.title = title
+        searchVC.navigationItem.title = title
+        navigationVC.navigationBar.prefersLargeTitles = true
+        
+        return navigationVC
     }
     
 
