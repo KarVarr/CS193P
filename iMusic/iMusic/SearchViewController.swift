@@ -47,6 +47,19 @@ class SearchViewController: UITableViewController {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+            let url = "https://itunes.apple.com/search?term=\(searchText)&limit=3"
+        
+        AF.request(url).response { dataResponse in
+            if let error = dataResponse.error {
+                print("Error \(error)")
+                return
+            }
+            
+            guard let data = dataResponse.data else { return }
+            let someString = String(data: data, encoding: .utf8)
+            print(someString ?? "")
+            
+        }
+
     }
 }
