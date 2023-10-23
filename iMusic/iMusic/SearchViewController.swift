@@ -40,18 +40,21 @@ class SearchViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let track = tracks[indexPath.row]
         
-        cell.textLabel?.text = track.artistName
+        cell.textLabel?.text = "\(track.artistName)\n\(track.collectionName ?? "")"
         cell.textLabel?.numberOfLines = 2
-        cell.detailTextLabel?.text = track.trackName
-        if let imageUrlString = track.artworkUr1100, let imageUrl = URL(string: imageUrlString) {
-            if let data = try? Data(contentsOf: imageUrl) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        cell.imageView?.image = image
+        
+        
+        DispatchQueue.global(qos: .userInteractive).async {
+            if let imageUrlString = track.artworkUrl100, let imageUrl = URL(string: imageUrlString) {
+                if let data = try? Data(contentsOf: imageUrl) {
+                    if let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            cell.imageView?.image = image
+                        }
                     }
                 }
+                
             }
-            
         }
         
         return cell
@@ -88,11 +91,8 @@ extension SearchViewController: UISearchBarDelegate {
                 } catch let error{
                     print("error Data = \(error)")
                 }
-                
-                //                let someString = String(data: data, encoding: .utf8)
-                //                print(someString ?? "")
+
             }
         })
-        
     }
 }
