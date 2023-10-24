@@ -12,6 +12,7 @@ class SearchViewController: UITableViewController {
     var tracks = [Track]()
     private var timer: Timer?
     let searchController = UISearchController()
+    let networkService = NetworkService()
     
     
     override func viewDidLoad() {
@@ -71,27 +72,9 @@ extension SearchViewController: UISearchBarDelegate {
         
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
-            let url = "https://itunes.apple.com/search"
-            let parameters = ["term": "\(searchText)", "limit": "5"]
-            
-            AF.request(url, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder.default, headers: nil).responseData { dataResponse in
-                if let error = dataResponse.error {
-                    print("Error \(error)")
-                    return
-                }
-                
-                guard let data = dataResponse.data else { return }
-                
-                let decoder = JSONDecoder()
-                do {
-                    let response = try decoder.decode(SearchResponse.self, from: data)
-                    print(response)
-                    self.tracks = response.results
-                    self.tableView.reloadData()
-                } catch let error{
-                    print("error Data = \(error)")
-                }
-
+            self.networkService.fetchTracks(searchText: searchText) { [weak self] results in
+                self?.tracks = results?.results ?? []
+                self?.tableView.reloadData()
             }
         })
     }

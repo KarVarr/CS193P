@@ -17,6 +17,7 @@
 		171A749C2AE42D6900718A1A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A749B2AE42D6900718A1A /* SearchViewController.swift */; };
 		171A749F2AE5185C00718A1A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 171A749E2AE5185C00718A1A /* Alamofire */; };
 		171A74A12AE56AB300718A1A /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A74A02AE56AB300718A1A /* SearchResponse.swift */; };
+		171A74A32AE84D0400718A1A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A74A22AE84D0400718A1A /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		171A74992AE42D1900718A1A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		171A749B2AE42D6900718A1A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		171A74A02AE56AB300718A1A /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		171A74A22AE84D0400718A1A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				171A74852AE42CA800718A1A /* AppDelegate.swift */,
 				171A74872AE42CA800718A1A /* SceneDelegate.swift */,
 				171A749B2AE42D6900718A1A /* SearchViewController.swift */,
+				171A74A22AE84D0400718A1A /* NetworkService.swift */,
 				171A74A02AE56AB300718A1A /* SearchResponse.swift */,
 				171A74992AE42D1900718A1A /* MainTabBarController.swift */,
 				171A74892AE42CA800718A1A /* ViewController.swift */,
@@ -160,6 +163,7 @@
 				171A74A12AE56AB300718A1A /* SearchResponse.swift in Sources */,
 				171A74862AE42CA800718A1A /* AppDelegate.swift in Sources */,
 				171A749A2AE42D1900718A1A /* MainTabBarController.swift in Sources */,
+				171A74A32AE84D0400718A1A /* NetworkService.swift in Sources */,
 				171A74882AE42CA800718A1A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
