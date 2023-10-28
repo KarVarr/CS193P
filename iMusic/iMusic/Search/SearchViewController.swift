@@ -18,6 +18,11 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
   var router: (NSObjectProtocol & SearchRoutingLogic)?
     
     @IBOutlet weak var table: UITableView!
+    
+    var tracks = [Track]()
+    private var timer: Timer?
+    let searchController = UISearchController()
+    let networkService = NetworkService()
 
     // MARK: Object lifecycle
   
@@ -53,11 +58,18 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+      setupSearchBar()
   }
   
   func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
 
   }
+    
+    private func setupSearchBar() {
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.delegate = self
+    }
   
 }
 
@@ -73,4 +85,17 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+//        timer?.invalidate()
+//        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+//            self.networkService.fetchTracks(searchText: searchText) { [weak self] results in
+//                self?.tracks = results?.results ?? []
+//                self?.tableView.reloadData()
+//            }
+//        })
+    }
 }
