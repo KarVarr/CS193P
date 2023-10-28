@@ -24,7 +24,7 @@
 		171A74BE2AEC218100718A1A /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A74B72AEC218100718A1A /* SearchModels.swift */; };
 		171A74BF2AEC218100718A1A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A74B82AEC218100718A1A /* SearchViewController.swift */; };
 		171A74C02AEC218100718A1A /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A74B92AEC218100718A1A /* SearchInteractor.swift */; };
-		171A74C12AEC218100718A1A /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 171A74BA2AEC218100718A1A /* SearchViewController.xib */; };
+		17743EDF2AED6CFB000969F3 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17743EDE2AED6CFB000969F3 /* SearchViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +46,7 @@
 		171A74B72AEC218100718A1A /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
 		171A74B82AEC218100718A1A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		171A74B92AEC218100718A1A /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
-		171A74BA2AEC218100718A1A /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		17743EDE2AED6CFB000969F3 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,13 +107,13 @@
 		171A74C22AEC219400718A1A /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				171A74B82AEC218100718A1A /* SearchViewController.swift */,
+				17743EDE2AED6CFB000969F3 /* SearchViewController.storyboard */,
 				171A74B42AEC218100718A1A /* SearchPresenter.swift */,
 				171A74B52AEC218100718A1A /* SearchWorker.swift */,
 				171A74B62AEC218100718A1A /* SearchRouter.swift */,
 				171A74B72AEC218100718A1A /* SearchModels.swift */,
-				171A74B82AEC218100718A1A /* SearchViewController.swift */,
 				171A74B92AEC218100718A1A /* SearchInteractor.swift */,
-				171A74BA2AEC218100718A1A /* SearchViewController.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 			files = (
 				171A74922AE42CAA00718A1A /* LaunchScreen.storyboard in Resources */,
 				171A748F2AE42CAA00718A1A /* Assets.xcassets in Resources */,
-				171A74C12AEC218100718A1A /* SearchViewController.xib in Resources */,
+				17743EDF2AED6CFB000969F3 /* SearchViewController.storyboard in Resources */,
 				171A748D2AE42CA800718A1A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
