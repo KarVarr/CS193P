@@ -8,7 +8,7 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
-    let searchVC = SearchMusicViewController()
+    let searchVC: SearchViewController = SearchViewController.loadFromStoryboard()
     let libraryVC  = ViewController()
 
     override func viewDidLoad() {

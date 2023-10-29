@@ -13,14 +13,23 @@ protocol SearchBusinessLogic {
 }
 
 class SearchInteractor: SearchBusinessLogic {
-
-  var presenter: SearchPresentationLogic?
-  var service: SearchService?
-  
-  func makeRequest(request: Search.Model.Request.RequestType) {
-    if service == nil {
-      service = SearchService()
+    
+    var presenter: SearchPresentationLogic?
+    var service: SearchService?
+    
+    func makeRequest(request: Search.Model.Request.RequestType) {
+        if service == nil {
+            service = SearchService()
+            
+            switch request {
+                
+            case .some:
+                print("interactor .some")
+            case .getTracks:
+                print("Interactor .getTracks")
+                presenter?.presentData(response: Search.Model.Response.ResponseType.presentTracks)
+            }
+        }
+        
     }
-  }
-  
 }

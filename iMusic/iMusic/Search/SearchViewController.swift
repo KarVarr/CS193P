@@ -58,17 +58,31 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+      setup()
+      
       setupSearchBar()
+      setupTableView()
+    
   }
   
   func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
-
+      switch viewModel {
+          
+      case .some:
+          print("viewModel .some")
+      case .displayTracks:
+          print("viewController .displayTracks")
+      }
   }
     
     private func setupSearchBar() {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.delegate = self
+    }
+    
+    private func setupTableView() {
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
     }
   
 }
@@ -89,6 +103,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        interactor?.makeRequest(request: Search.Model.Request.RequestType.getTracks)
         
 //        timer?.invalidate()
 //        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
